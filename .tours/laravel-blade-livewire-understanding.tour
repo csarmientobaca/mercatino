@@ -1,0 +1,20 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "laravel, blade, livewire understanding",
+  "steps": [
+    {
+      "title": "components",
+      "description": "there are 2 welcomes, the welcome for the dashboard, and the welcome to the laravel app\n"
+    },
+    {
+      "file": "resources/views/components/welcome.blade.php",
+      "description": "this is a component used in the \"/dashboard\" called with <x-welcome>\n",
+      "line": 12
+    },
+    {
+      "file": "resources/views/welcome.blade.php",
+      "description": "this is a page and not an component, cant be called with <x-something>",
+      "line": 837
+    }
+  ]
+}
