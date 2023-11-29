@@ -16,6 +16,7 @@ class ClientList extends Component
     public $showAlert = false;
 
 
+
     public function mount()
     {
         $this->users = User::all();
