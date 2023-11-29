@@ -46,6 +46,18 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+
+                                <div class="mt-4">
+                                    <label for="product" class="block text-sm font-medium text-gray-700">Select Product</label>
+                                    <select wire:model="selectedProduct" id="product" name="product" class="mt-1 p-2 border text-black border-gray-300 rounded-md">
+                                        <option value="" disabled>Select a product</option>
+                                        @foreach($products as $product)
+                                        <option value="{{ $product->id }}">{{ $product->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    <button wire:click="associateProduct({{ $user->id }})" class="mt-2 px-4 py-2 bg-blue-500 text-black rounded-md">Associate Product</button>
+                                </div>
+
                                 @else
                                 <p>No products for this user.</p>
                                 @endif
@@ -54,7 +66,13 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div x-show="showAlert" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed top-0 right-0 m-8 p-4 bg-red-500 text-white rounded-md">
+                    <p>{{ $errors->first('selectedProduct') }}</p>
+                    <button x-on:click="showAlert = false" class="ml-4 text-white">&times;</button>
+                </div>
             </div>
         </div>
     </div>
+</div>
+
 </div>

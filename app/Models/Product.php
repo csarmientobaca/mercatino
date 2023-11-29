@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['user_id', 'name', 'quantity'];
+    protected $fillable = ['name'];
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsToMany(User::class, 'user_product', 'product_id', 'user_id');
     }
 }
