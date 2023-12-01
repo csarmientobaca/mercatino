@@ -21,10 +21,6 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     @endif
-
-                    <x-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
-                        {{ __('Create user') }}
-                    </x-nav-link>
                     <x-nav-link href="{{ route('products.create') }}" :active="request()->routeIs('products.create')">
                         {{ __('Create Product') }}
                     </x-nav-link>
