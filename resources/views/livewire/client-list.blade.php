@@ -1,4 +1,6 @@
-<div x-data="{ expandedRow: null }" class="flex flex-col">
+<!-- client-list.blade.php -->
+
+<div x-data="{ expandedRow: null, showAlert: @entangle('showAlert') }" class="flex flex-col">
     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
             <div class="overflow-hidden">
@@ -32,8 +34,8 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Quantity</th>
+                                            <th>Product</th>
+                                            <th>Action</th> <!-- Add this column for the disassociate button -->
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -41,7 +43,9 @@
                                         <tr>
                                             <td>{{$product->id}}</td>
                                             <td>{{$product->name}}</td>
-                                            <td>{{$product->quantity}}</td>
+                                            <td>
+                                                <button wire:click="disassociateProduct({{ $user->id }}, {{ $product->id }})" class="px-2 py-1 bg-red-500 text-white rounded-md">Disassociate</button>
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -50,7 +54,7 @@
                                 <div class="mt-4">
                                     <label for="product" class="block text-sm font-medium text-gray-700">Select Product</label>
                                     <select wire:model="selectedProduct" id="product" name="product" class="mt-1 p-2 border text-black border-gray-300 rounded-md">
-                                        <option value="" disabled>Select a product</option>
+                                        <option value="">Select a product</option>
                                         @foreach($products as $product)
                                         <option value="{{ $product->id }}">{{ $product->name }}</option>
                                         @endforeach
@@ -73,6 +77,4 @@
             </div>
         </div>
     </div>
-</div>
-
 </div>
