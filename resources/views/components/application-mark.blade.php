@@ -1,1 +1,1 @@
-<img src="{{ asset('mercatinoLogo.jpeg') }}" alt="mercatinoLogo" {{ $attributes }}>
+<img src="{{ asset('mercatinoLogo.png') }}" alt="mercatinoLogo" {{ $attributes }}>

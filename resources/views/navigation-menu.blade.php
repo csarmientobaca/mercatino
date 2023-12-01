@@ -12,10 +12,17 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    @if(Auth::check() && Auth::user()->usertype == 1)
+                    <x-nav-link href="{{ url('/redirect') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-nav-link>
+                    @else
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('register') }}" :active="request()->routeIs('registration')">
+                    @endif
+
+                    <x-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
                         {{ __('Create user') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('products.create') }}" :active="request()->routeIs('products.create')">

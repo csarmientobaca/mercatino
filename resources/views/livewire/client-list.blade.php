@@ -35,7 +35,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Product</th>
-                                            <th>Action</th> <!-- Add this column for the disassociate button -->
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>

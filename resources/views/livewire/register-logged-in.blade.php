@@ -1,4 +1,4 @@
-<x-action-section>
+<x-action-section class="mx-20">
     <x-slot name="title">
         {{ __('Create Account') }}
     </x-slot>
